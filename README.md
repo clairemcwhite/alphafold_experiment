@@ -1,1 +1,0 @@
-# alphafold_experiment
