@@ -8,18 +8,20 @@
 #SBATCH --time=24:00:00          # total run time limit (HH:MM:SS)
 #SBATCH --mail-type=begin        # send email when job begins
 #SBATCH --mail-type=end          # send email when job ends
-#SBATCH --mail-user=cmcwhite@princeton.edu
+#SBATCH --mail-user=YOUR_EMAIL_ADDRESS
 
 module purge
 module load anaconda3/2020.11
 module load cudatoolkit
 
-#conda activate hf-transformers
-
 nvidia-smi
 
-ALPHADATA=/scratch/gpfs/cmcwhite/alphafold_data
-ALPHASINGU=/scratch/gpfs/cmcwhite/alphafold_latest.sif
+# Full path to your alphafold_data and alphafold_latest.sif
+# Also replace your email address on line 11
+DATA=/scratch/gpfs/cmcwhite/alphafold_data
+SINGU=/scratch/gpfs/cmcwhite/alphafold_latest.sif 
 
-bash alphafold_command.sh FASTAFILE OUTPUTDIR $ALPHADATA $ALPHASINGU
+bash alphafold_command.sh FASTAFILE OUTPUTDIR $DATA $SINGU 
+rm OUTPUTDIR/*pkl
+rm -r OUTPUTDIR/msas
 

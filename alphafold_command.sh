@@ -1,10 +1,9 @@
 fasta=$1
 outdir=$2
-alphafold_datapath=$3
+alphafold_data=$3
 alphafold_singularity=$4
 
-
-singularity run --env NVIDIA_VISIBLE_DEVICES='0',TF_FORCE_UNIFIED_MEMORY=1,XLA_PYTHON_CLIENT_MEM_FRACTION=4.0,OPENMM_CPU_THREADS=8 -B /scratch/gpfs/cmcwhite/alphafold_data:/data -B .:/etc --pwd /app/alphafold --nv /scratch/gpfs/cmcwhite/alphafold_latest.sif \
+singularity run --env NVIDIA_VISIBLE_DEVICES='0',TF_FORCE_UNIFIED_MEMORY=1,XLA_PYTHON_CLIENT_MEM_FRACTION=4.0,OPENMM_CPU_THREADS=8 -B $alphafold_data:/data -B .:/etc --pwd /app/alphafold --nv $alphafold_singularity \
 --fasta_paths $fasta \
 --output_dir $outdir \
 --data_dir /data/ \
