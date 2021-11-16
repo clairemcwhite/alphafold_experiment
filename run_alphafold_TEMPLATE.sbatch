@@ -20,8 +20,9 @@ nvidia-smi
 # Also replace your email address on line 11
 DATA=/scratch/gpfs/cmcwhite/alphafold_data
 SINGU=/scratch/gpfs/cmcwhite/alphafold_latest.sif 
+MODEL=multimer # Or monomer
 
-bash alphafold_command.sh FASTAFILE OUTPUTDIR $DATA $SINGU 
+bash alphafold_command.sh FASTAFILE OUTPUTDIR $DATA $SINGU $MODEL
 rm OUTPUTDIR/*pkl
 rm -r OUTPUTDIR/msas
 
