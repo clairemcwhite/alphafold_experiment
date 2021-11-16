@@ -18,10 +18,11 @@ nvidia-smi
 
 # Full path to your alphafold_data and alphafold_latest.sif
 # Also replace your email address on line 11
-DATA=/scratch/gpfs/vc8200/alphafold_data
-SINGU=/scratch/gpfs/vc8200/alphafold_latest.sif 
 
-bash alphafold_command.sh FASTAFILE OUTPUTDIR $DATA $SINGU 
-rm OUTPUTPATH/*pkl
-rm -r OUTPUTPATH/msas
+DATA=/scratch/gpfs/username/alphafold_data
+SINGU=/scratch/gpfs/username/alphafold_latest.sif 
+MODEL=multimer # Or monomer
 
+bash alphafold_command.sh FASTAFILE OUTPUTDIR $DATA $SINGU $MODEL
+rm OUTPUTDIR/*pkl
+rm -r OUTPUTDIR/msas
