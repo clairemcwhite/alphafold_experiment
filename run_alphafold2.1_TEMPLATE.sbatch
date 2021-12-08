@@ -14,7 +14,6 @@ module load alphafold/2.1.1
 fasta=FASTAFILE
 outdir=OUTPUTDIR
 time run_alphafold.sh \
-
                  -f $fasta \
                  -o $outdir \
                  -d /scratch/gpfs/DATASETS/alphafold/2021-11-22 \
