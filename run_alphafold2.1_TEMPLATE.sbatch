@@ -17,7 +17,7 @@ time run_alphafold.sh \
                  -f $fasta \
                  -o $outdir \
                  -d /scratch/gpfs/DATASETS/alphafold/2021-11-22 \
-                 -m multimer \
+                 -m monomer \
                  -t 2021-11-22 \
                  -g \
                  -a 0 \
