@@ -19,7 +19,7 @@ module load cudatoolkit
 module use /projects/MOLBIO/Modules/modulefiles-rhel8
 module load alphafold/2.1.1
 
-command=$(sed -n "$SLURM_ARRAY_TASK_ID"p COMMANDFILE)
+command=$(sed -n "$SLURM_ARRAY_TASK_ID"p COMMANDSFILE)
 echo $command
 echo $SLURM_ARRATH_TASK
 srun $command

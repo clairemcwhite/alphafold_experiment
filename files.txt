@@ -1,0 +1,2 @@
+fastas/fmg2.fasta
+fastas/kinase4.fasta
