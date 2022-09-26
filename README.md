@@ -1,5 +1,23 @@
 # Scripts to manage running alphafold2 jobs
 
-###  Make one alphafold command per fasta path in fastapaths.txt for username
-### fastapaths.txt = one path to a fasta file per line (see files.txt)
-bash make_alphafold_array_commands.sh fastapaths.txt cmcwhite
+### Run one protein
+
+- Copy run_alphafold_example.sbatch to a new filename
+  - Ex. cp run_alphafold_example.sbatch run_alphafold_myprot.sbatch
+- Open and modify variables in run_alphafold_myprot.sbatch 
+
+### Run multiple proteins with an array job
+
+- Make one fasta formatted file per protein
+  -  See fastas/fmg2.fasta as an example of how each file should look
+
+- Make a file containing the names of all the fasta files of proteins you would like to run
+  - See example_fastapaths.txt as an example of how this should look
+
+- Use make_alphafold_array_commands.sh script to format sbatch for the run
+  - bash make_alphafold_array_commands.sh example_fastapaths.txt cmcwhite
+  - This creates two files:
+    - example_fastapaths_COMMANDS.sh
+    - run_alphafold_example_fastapaths.sbatch
+- Submit job to della
+  - bash run_alphafold_example_fastapaths.sbatch
