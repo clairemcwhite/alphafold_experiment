@@ -4,7 +4,7 @@ OUTPUTDIR=$( pwd )/output_alphafold
 mkdir $OUTPUTDIR
 
 COMMAND_FILE=${FASTA_LIST}_COMMANDS.sh
-SBATCH_FILE=run_alphafold_${FASTA_LIST}.sbatch
+SBATCH_FILE=run_alphafold_array_${FASTA_LIST}.sbatch
 
 rm $COMMAND_FILE
 rm $SBATCH_FILE
